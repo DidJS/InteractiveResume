@@ -1,0 +1,22 @@
+{
+  "name": "cv",
+  "homepage": "https://github.com/DidJS/CV",
+  "authors": [
+    "DidJS <didier.cauvin@outlook.fr>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2.2.0"
+  }
+}
