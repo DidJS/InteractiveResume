@@ -1,5 +1,5 @@
-import { doTest } from './test';
+import *  as canvas from './canvasInitializer';
 
+var canvases = canvas.initCanvases();
 
-    doTest();
-
+console.log(canvases);
