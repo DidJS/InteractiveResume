@@ -1,7 +1,44 @@
 <html>
+    <head>
+        <style>
+            #main {
+                width: 550px;
+                height: 400px;
+            }
+            #playground {
+                width: 500px;
+                height: 390px;
+                border: 1px solid black;
+            }
+            #action_portrait {
+                width: 500px;
+                height: 100px;
+            }
+            #actions {
+                width: 400px;
+                height: 90px;
+                border: 1px solid black;
+                float: left;
+            }
+            #portrait {
+                width: 100px;
+                height: 90px;
+                border: 1px solid black;
+                margin-left: 400px;
+            }
+        </style>
+    </head>
 <body>
-    <canvas id="playground_canvas"></canvas>
-    <canvas id="actions_canvas"></canvas>
+
+    <div id="main">
+        <div id="playground">
+            <canvas id="playground_canvas"></canvas>
+        </div>
+        <div id="action_portrait">
+            <div id="actions"><canvas id="actions_canvas"></canvas></div>
+            <div id="portrait"><canvas id="portrait_canvas"></canvas></div>
+        </div>
+    </div>
     <script data-main="js/main.js" src="libs/requirejs/require.js"></script>
 </body>
 </html>
