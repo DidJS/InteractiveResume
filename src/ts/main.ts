@@ -1,5 +1,7 @@
-import *  as canvas from './canvasInitializer';
+import * as game from './game';
 
-var canvases = canvas.initCanvases();
+const playgroundArea = game.createArea('playground_canvas');
+const actionsArea = game.createArea('actions_canvas');
+const portraitArea = game.createArea('portrait_canvas');
 
-console.log(canvases);
+actionsArea.displayText('Regarder', 10, 10);
