@@ -1,6 +1,4 @@
 node_modules/
 src/js
+src/libs
 typings/
-**/*.js
-**/*.js.map
-!gulp*
