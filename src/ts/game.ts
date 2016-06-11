@@ -1,7 +1,9 @@
 import * as renderer from './core/renderer'
+import { ITextOption } from './core/contracts'
 
 interface IArea {
-    displayText(text: string, x: number, y: number): void
+    displayText(text: string, options?: ITextOption): void,
+    setBackgroundColor(color: string): void
 }
 
 const areas = {};
@@ -11,7 +13,8 @@ const addAndReturnArea = (name: string): IArea => {
     Object.defineProperty(areas, name, areaRenderer);
 
     return {
-        displayText: areaRenderer.renderText
+        displayText: areaRenderer.renderText,
+        setBackgroundColor: areaRenderer.setBackgroundColor
     }
 }
 

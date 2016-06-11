@@ -12,8 +12,6 @@
                 margin-top: 30px;
             }
             #playground {
-                width: 800px;
-                height: 495px;
                 border: 1px solid black;
                 background-color: white;
             }
@@ -23,15 +21,11 @@
                 margin-top: 5px;
             }
             #actions {
-                width: 695px;
-                height: 100px;
                 border: 1px solid black;
                 float: left;
                 background-color: white;
             }
             #portrait {
-                width: 100px;
-                height: 100px;
                 border: 1px solid black;
                 margin-left: 700px;
                 background-color: white;
@@ -42,11 +36,11 @@
 
     <div id="main">
         <div id="playground">
-            <canvas id="playground_canvas"></canvas>
+            <canvas id="playground_canvas" width="800px" height="495px"></canvas>
         </div>
         <div id="action_portrait">
-            <div id="actions"><canvas id="actions_canvas"></canvas></div>
-            <div id="portrait"><canvas id="portrait_canvas"></canvas></div>
+            <div id="actions"><canvas id="actions_canvas" width="695px" height="100px"></canvas></div>
+            <div id="portrait"><canvas id="portrait_canvas" width="100px" height="100px"></canvas></div>
         </div>
     </div>
     <script data-main="js/main.js" src="libs/requirejs/require.js"></script>
