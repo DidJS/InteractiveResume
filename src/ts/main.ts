@@ -31,3 +31,5 @@ actionsArea.addText('open', 'Ouvrir',
     {font: "20px serif",
     style: "blue"
 });
+
+game.play();

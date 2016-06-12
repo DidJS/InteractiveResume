@@ -1,28 +1,20 @@
-import * as renderer from './core/renderer'
-import { ITextObject, ISize, ICoordinate, IStyle } from './core/contracts'
-import * as textObject from './core/objects/textObject'
+import * as area from './core/objects/area'
+import {IArea} from './core/contracts'
 
-interface IArea {
-    addText(key: string, text: string, coordinates: ICoordinate, size: ISize, style: IStyle): void,
-    setBackgroundColor(color: string): void
-}
-
-const areas = {};
+const areas: IArea[] = [];
 
 const addAndReturnArea = (name: string): IArea => {
-    const areaRenderer = renderer.createRenderer(name);
-    Object.defineProperty(areas, name, areaRenderer);
+    const areaObject = area.createArea(name);
+    areas.push(areaObject);
 
-    const registerAndRenderText = (key: string, text: string, coordinates: ICoordinate, size: ISize, style: IStyle): void => {
-        const obj: ITextObject = textObject.create(key, text, coordinates, size, style);
-
-        areaRenderer.renderText(obj);
-    };
-
-    return {
-        addText: registerAndRenderText,
-        setBackgroundColor: areaRenderer.setBackgroundColor
-    }
+    return areaObject;
 };
 
-export { addAndReturnArea as createArea }
+const play = (): void => {
+
+};
+
+export {
+    addAndReturnArea as createArea,
+    play as play
+}

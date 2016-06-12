@@ -5,6 +5,7 @@ import { ITextObject } from './contracts/ITextObject'
 import {ISize} from './contracts/ISize'
 import {ICoordinate} from './contracts/ICoordinate'
 import {IStyle} from './contracts/IStyle'
+import {IArea} from './contracts/IArea'
 
 
 export {
@@ -14,5 +15,6 @@ export {
     ITextObject,
     ISize,
     ICoordinate,
-    IStyle
+    IStyle,
+    IArea
 }
