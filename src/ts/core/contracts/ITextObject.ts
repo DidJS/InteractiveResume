@@ -1,8 +1,8 @@
-import { ITextOption } from './ITextOption';
+import { IDisplayObject } from './IDisplayObject';
+import { IStyle } from './IStyle';
 
-interface ITextObject {
-    text: string,
-    options: ITextOption
+interface ITextObject extends IDisplayObject, IStyle {
+    text: string
 }
 
 export { ITextObject }

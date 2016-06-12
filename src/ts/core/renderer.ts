@@ -1,19 +1,16 @@
 import * as canvas from './canvasInitializer';
-import { ICanvas, IRenderer, ITextOption, ITextObject } from './contracts';
+import { ICanvas, IRenderer, ITextObject } from './contracts';
 
 const createRenderer = (canvasName: string): IRenderer => {
     const canvasInfo = canvas.initCanvas(canvasName);
     const textObjects: ITextObject[] = [];
 
-    const renderText = (text: string, options: ITextOption): void => {
-        textObjects.push({
-            text: text,
-            options: options
-        });
+    const renderText = (textObject: ITextObject): void => {
+        textObjects.push(Object.create(textObject));
 
-        canvasInfo.context.font = options.font;
-        canvasInfo.context.fillStyle = options.style;
-        canvasInfo.context.fillText(text, options.x, options.y);
+        canvasInfo.context.font = textObject.font;
+        canvasInfo.context.fillStyle = textObject.style;
+        canvasInfo.context.fillText(textObject.text, textObject.x, textObject.y);
     };
 
     const setBackgroundColor = (color: string): void => {

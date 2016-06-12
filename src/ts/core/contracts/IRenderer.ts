@@ -1,7 +1,7 @@
-import { ITextOption } from './ITextOption';
+import { ITextObject } from './ITextObject';
 
 interface IRenderer {
-    renderText(text: string, options?: ITextOption): void,
+    renderText(textObject: ITextObject): void,
     setBackgroundColor(color: string): void
 }
 
