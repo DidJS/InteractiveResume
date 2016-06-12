@@ -1,8 +1,8 @@
 import * as game from './game';
 
-const playgroundArea = game.createArea('playground_canvas');
-const actionsArea = game.createArea('actions_canvas');
-const portraitArea = game.createArea('portrait_canvas');
+const playgroundArea = game.registerArea('playground_canvas');
+const actionsArea = game.registerArea('actions_canvas');
+const portraitArea = game.registerArea('portrait_canvas');
 
 actionsArea.setBackgroundColor("black");
 actionsArea.addText('look','Regarder',

@@ -11,10 +11,12 @@ const addAndReturnArea = (name: string): IArea => {
 };
 
 const play = (): void => {
-
+    for (var i = 0; i < areas.length; i++) {
+        areas[i].render();
+    }
 };
 
 export {
-    addAndReturnArea as createArea,
+    addAndReturnArea as registerArea,
     play as play
 }
