@@ -1,26 +1,32 @@
-import * as renderer from '../renderer'
 import { ITextObject, ISize, ICoordinate, IStyle, IArea, IDisplayObject } from '../contracts'
 import * as textObject from './textObject'
 
 const createArea = (name: string): IArea => {
     const textObjects: ITextObject[] = [];
-    const areaRenderer = renderer.createRenderer(name);
+    let areaColor = "white";
 
-    const registerAndRenderText = (key: string, text: string, coordinates: ICoordinate, size: ISize, style: IStyle): void => {
+    const registerText = (key: string, text: string, coordinates: ICoordinate, size: ISize, style: IStyle): void => {
         const obj: ITextObject = textObject.create(key, text, coordinates, size, style);
         textObjects.push(obj);
     };
 
-    const render = (): void => {
-        for (let i = 0; i < textObjects.length; i++) {
-            areaRenderer.renderText(textObjects[i]);
-        }
+    const getTextObjects = (): ITextObject[] => {
+        return textObjects;
+    };
+
+    const setBackgroundColor = (color: string): void => {
+        areaColor = color;
+    };
+
+    const getColor = (): string => {
+        return areaColor;
     };
 
     return {
-        addText: registerAndRenderText,
-        setBackgroundColor: areaRenderer.setBackgroundColor,
-        render: render
+        getColor: getColor,
+        addText: registerText,
+        setBackgroundColor: setBackgroundColor,
+        getTextObjects: getTextObjects
     }
 };
 

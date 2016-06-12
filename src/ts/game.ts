@@ -1,18 +1,26 @@
 import * as area from './core/objects/area'
-import {IArea} from './core/contracts'
+import {IArea, IRenderer} from './core/contracts'
+import * as renderer from './core/renderer'
 
-const areas: IArea[] = [];
+interface IAreaInfo {
+    area: IArea,
+    renderer: IRenderer
+}
+
+const areaInfos:IAreaInfo[] = [];
 
 const addAndReturnArea = (name: string): IArea => {
     const areaObject = area.createArea(name);
-    areas.push(areaObject);
+    const rendererObject = renderer.createRenderer(name);
+    areaInfos.push({area: areaObject, renderer: rendererObject});
 
     return areaObject;
 };
 
 const play = (): void => {
-    for (var i = 0; i < areas.length; i++) {
-        areas[i].render();
+    const length = areaInfos.length;
+    for (var i = 0; i < length; i++) {
+        areaInfos[i].renderer.render(areaInfos[i].area);
     }
 };
 

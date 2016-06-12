@@ -1,8 +1,7 @@
-import { ITextObject } from './ITextObject';
+import { IArea } from './IArea';
 
 interface IRenderer {
-    renderText(textObject: ITextObject): void,
-    setBackgroundColor(color: string): void
+    render(area: IArea): void
 }
 
 export { IRenderer }
