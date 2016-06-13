@@ -1,7 +1,7 @@
-import { ITextObject, ISize, ICoordinate, IStyle, IArea, IDisplayObject } from '../contracts'
-import * as textObject from './textObject'
+import {ITextObject, ISize, ICoordinate, IStyle, IScene} from './contracts'
+import * as textObject from './objects/textObject'
 
-const createArea = (name: string): IArea => {
+const createScene = (name: string): IScene => {
     const textObjects: ITextObject[] = [];
     let areaColor = "white";
 
@@ -22,12 +22,18 @@ const createArea = (name: string): IArea => {
         return areaColor;
     };
 
+    const getName = (): string => {
+        return name;
+    };
+
     return {
+        getName: getName,
         getBackgroundColor: getBackgroundColor,
         addText: registerText,
         setBackgroundColor: setBackgroundColor,
         getTextObjects: getTextObjects
-    }
+    };
 };
 
-export {createArea as createArea}
+export {createScene as createScene}
+

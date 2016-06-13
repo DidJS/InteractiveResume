@@ -1,7 +1,7 @@
 import * as canvas from './canvasInitializer';
-import { ICanvas, IRenderer, ITextObject, IArea } from './contracts';
+import { ICanvas, ISceneRenderer, ITextObject, IScene } from './contracts';
 
-const createRenderer = (canvasName: string): IRenderer => {
+const createRenderer = (canvasName: string): ISceneRenderer => {
     const canvasInfo = canvas.initCanvas(canvasName);
 
     const renderText = (textObject: ITextObject): void => {
@@ -15,11 +15,11 @@ const createRenderer = (canvasName: string): IRenderer => {
         canvasInfo.context.fillRect(0, 0, canvasInfo.canvas.width, canvasInfo.canvas.height);
     };
 
-    const render = (area: IArea): void => {
-        const textObjects = area.getTextObjects();
+    const render = (scene: IScene): void => {
+        const textObjects = scene.getTextObjects();
         const length = textObjects.length;
 
-        setBackgroundColor(area.getBackgroundColor());
+        setBackgroundColor(scene.getBackgroundColor());
 
         for (let i = 0; i < length; i++) {
             renderText(textObjects[i]);
