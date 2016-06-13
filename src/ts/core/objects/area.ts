@@ -18,12 +18,12 @@ const createArea = (name: string): IArea => {
         areaColor = color;
     };
 
-    const getColor = (): string => {
+    const getBackgroundColor = (): string => {
         return areaColor;
     };
 
     return {
-        getColor: getColor,
+        getBackgroundColor: getBackgroundColor,
         addText: registerText,
         setBackgroundColor: setBackgroundColor,
         getTextObjects: getTextObjects

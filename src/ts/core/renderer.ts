@@ -19,7 +19,7 @@ const createRenderer = (canvasName: string): IRenderer => {
         const textObjects = area.getTextObjects();
         const length = textObjects.length;
 
-        setBackgroundColor(area.getColor());
+        setBackgroundColor(area.getBackgroundColor());
 
         for (let i = 0; i < length; i++) {
             renderText(textObjects[i]);

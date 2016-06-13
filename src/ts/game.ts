@@ -2,25 +2,29 @@ import * as area from './core/objects/area'
 import {IArea, IRenderer} from './core/contracts'
 import * as renderer from './core/renderer'
 
-interface IAreaInfo {
-    area: IArea,
-    renderer: IRenderer
+interface IScene {
+    render(): void
 }
 
-const areaInfos:IAreaInfo[] = [];
+const scenes:IScene[] = [];
 
 const addAndReturnArea = (name: string): IArea => {
     const areaObject = area.createArea(name);
-    const rendererObject = renderer.createRenderer(name);
-    areaInfos.push({area: areaObject, renderer: rendererObject});
+
+    scenes.push({
+        render: () => {
+            const rendererObject = renderer.createRenderer(name);
+            rendererObject.render(areaObject);
+        }
+    });
 
     return areaObject;
 };
 
 const play = (): void => {
-    const length = areaInfos.length;
+    const length = scenes.length;
     for (var i = 0; i < length; i++) {
-        areaInfos[i].renderer.render(areaInfos[i].area);
+        scenes[i].render();
     }
 };
 
