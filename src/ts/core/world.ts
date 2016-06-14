@@ -1,20 +1,27 @@
-import {ISceneRenderer, IWorld} from './contracts'
+import {ISceneRenderer, IScene, ICoordinate, ISize, IStyle, IWorld} from './contracts'
 import * as worldscene from './scene'
 import * as scenerenderer from './scenerenderer'
 
-const create = (name: string): IWorld => {
-    const scene = worldscene.createScene(name);
-    const renderer = scenerenderer.createRenderer(name);
+class World implements IWorld {
+    scene: IScene;
+    renderer: ISceneRenderer;
 
-    const play = (): void => {
-        renderer.render(scene);
-    };
+    constructor(name: string) {
+        this.scene = worldscene.createScene(name);
+        this.renderer = scenerenderer.createRenderer(name);
+    }
 
-    return {
-        addText: scene.addText,
-        setBackgroundColor: scene.setBackgroundColor,
-        play: play
-    };
-};
+    play(): void {
+        this.renderer.render(this.scene);
+    }
 
-export { create }
+    addText(key: string, text: string, coordinates: ICoordinate, size: ISize, style: IStyle) {
+        this.scene.addText(key, text, coordinates, size, style);
+    }
+
+    setBackgroundColor(color: string) {
+        this.scene.setBackgroundColor(color);
+    }
+}
+
+export default World;

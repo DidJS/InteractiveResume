@@ -1,8 +1,8 @@
-import * as world from './core/world';
+import World from './core/World';
 
-const worldPlayground = world.create('playground_canvas');
-const worldActions = world.create('actions_canvas');
-const worldPortrait = world.create('portrait_canvas')
+const worldPlayground = new World('playground_canvas');
+const worldActions = new World('actions_canvas');
+const worldPortrait = new World('portrait_canvas')
 
 worldPortrait.setBackgroundColor("blue");
 worldActions.setBackgroundColor("black");
