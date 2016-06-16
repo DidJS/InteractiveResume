@@ -1,5 +1,5 @@
 import * as canvas from '../canvasInitializer';
-import { ICanvas, ISceneRenderer, ITextObject, IScene, IDisplayObject } from '../contracts/contracts';
+import { ICanvas, ISceneRenderer, ITextObject, IScene, IRectangleObject } from '../contracts';
 
 class SceneRenderer implements ISceneRenderer {
     private canvasInfo: ICanvas;
@@ -14,7 +14,7 @@ class SceneRenderer implements ISceneRenderer {
         this.canvasInfo.context.fillText(textObject.text, textObject.x, textObject.y);
     };
 
-    private renderDisplayObject(displayObject: IDisplayObject): void {
+    private renderDisplayObject(displayObject: IRectangleObject): void {
         this.canvasInfo.context.rect(displayObject.x, displayObject.y, displayObject.width, displayObject.height);
         this.canvasInfo.context.stroke();
     }

@@ -1,11 +1,9 @@
-import {ISize, ICoordinate, IStyle} from './contracts'
-import Rectangle from '../objects/Rectangle'
+import {ISize, ICoordinate, IStyle, IAddObject} from '../contracts'
 
 interface IArea {
     display(): void,
-    addText(key: string, text: string, coordinates: ICoordinate, size: ISize, style: IStyle): void,
     setBackgroundColor(color: string): void,
-    addRectangle(key: string, coordinates: ICoordinate, size: ISize): Rectangle
+    add: IAddObject
 }
 
 export {IArea}

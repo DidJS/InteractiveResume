@@ -1,7 +1,6 @@
-import { IDisplayObject } from './IDisplayObject';
-import { IStyle } from './IStyle';
+import { IRectangleObject, IStyle } from '../contracts'
 
-interface ITextObject extends IDisplayObject, IStyle {
+interface ITextObject extends IRectangleObject, IStyle {
     text: string
 }
 

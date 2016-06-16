@@ -1,10 +1,11 @@
-import {ITextObject, ISize, ICoordinate, IStyle, IScene, IDisplayObject} from '../contracts/contracts'
-import * as textObject from './textObject'
+import {ITextObject, ISize, ICoordinate, IStyle, IScene, IRectangleObject} from '../contracts'
+import Text from './Text'
+import Rectangle from './Rectangle'
 
 class Scene implements IScene {
     private name: string;
     private textObjects: ITextObject[];
-    private displayObjects: IDisplayObject[];
+    private displayObjects: IRectangleObject[];
     private areaColor = 'white';
 
     constructor(name: string) {
@@ -25,17 +26,22 @@ class Scene implements IScene {
         return this.textObjects;
     };
 
-    getDisplayObjects(): IDisplayObject[] {
+    getDisplayObjects(): IRectangleObject[] {
         return this.displayObjects;
-    }
-
-    addText(key: string, text: string, coordinates: ICoordinate, size: ISize, style: IStyle): void {
-        const obj: ITextObject = textObject.create(key, text, coordinates, size, style);
-        this.textObjects.push(obj);
     };
 
-    addDisplayObject(displayObject: IDisplayObject): void {
-        this.displayObjects.push(displayObject);
+    addText(key: string, text: string, coordinates: ICoordinate, size: ISize, style: IStyle): ITextObject {
+        const textObject: ITextObject = new Text(key, text, coordinates, size, style);
+        this.textObjects.push(textObject);
+
+        return textObject;
+    };
+
+    addRectangle(key: string, coordinates: ICoordinate, size: ISize): IRectangleObject {
+        const rect = new Rectangle(key, coordinates, size);
+        this.displayObjects.push(rect);
+
+        return rect;
     };
 
     setBackgroundColor(color: string): void {
