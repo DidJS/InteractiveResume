@@ -2,6 +2,7 @@ import {ISceneRenderer, IScene, ICoordinate, ISize, IStyle, IArea, ITextObject, 
 import Scene from './Scene'
 import SceneRenderer from './SceneRenderer'
 import Rectangle from './Rectangle'
+import Mouse from './Mouse'
 
 class Area implements IArea {
     private scene: IScene;
@@ -9,6 +10,8 @@ class Area implements IArea {
 
     add: IAddObject;
     collider: ICollider;
+
+    mouse: Mouse;
 
     private createSceneObjects(name: string) {
         this.scene = new Scene(name);
@@ -29,6 +32,7 @@ class Area implements IArea {
     constructor(name: string) {
         this.createSceneObjects(name);
         this.add = this.createAddObject();
+        this.mouse = new Mouse(this, this.renderer.getCanvasInfo());
     }
 
     display(): void {

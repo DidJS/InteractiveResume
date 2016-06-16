@@ -14,9 +14,9 @@ areaActions.add.text('open', 'Ouvrir', {x: 200, y: 30}, {width: 60, height: 30},
 
 var rectangle1 = areaPlayground.add.rectangle('rectangle1', {x: 20, y: 30}, {width: 60, height: 30});
 
-// areaActions.collider.add(textLook, mouse, () => {
-
-// });
+areaActions.mouse.click(textLook, () => {
+    console.log('click on', textLook.key);
+});
 
 areaPlayground.display();
 areaActions.display();

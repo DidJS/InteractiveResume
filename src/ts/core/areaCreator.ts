@@ -4,4 +4,6 @@ const generator = (name: string): Area => {
     return new Area(name);
 };
 
-export {generator as create}
+export {
+    generator as create
+}

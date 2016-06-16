@@ -10,6 +10,7 @@ import IArea from './contracts/IArea'
 import IIdentityObject from './contracts/IIdentityObject'
 import IAddObject from './contracts/IAddObject'
 import ICollider from './contracts/ICollider'
+import IMouse from './contracts/IMouse'
 
 
 export {
@@ -24,5 +25,6 @@ export {
     IArea as IArea,
     IIdentityObject as IIdentityObject,
     IAddObject as IAddObject,
-    ICollider as ICollider
+    ICollider as ICollider,
+    IMouse as IMouse
 }

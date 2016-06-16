@@ -1,12 +1,21 @@
-import * as canvas from '../canvasInitializer';
 import { ICanvas, ISceneRenderer, ITextObject, IScene, IRectangleObject } from '../contracts';
 
 class SceneRenderer implements ISceneRenderer {
     private canvasInfo: ICanvas;
 
     constructor(canvasName: string) {
-        this.canvasInfo = canvas.initCanvas(canvasName);
+        this.canvasInfo = this.initCanvas(canvasName);
     }
+
+    private initCanvas(name: string): ICanvas {
+        var canvas = <HTMLCanvasElement>document.getElementById(name);
+        var context = canvas.getContext("2d");
+
+        return {
+            canvas: canvas,
+            context: context
+        };
+    };
 
     private renderText(textObject: ITextObject): void {
         this.canvasInfo.context.font = textObject.font;
@@ -40,6 +49,10 @@ class SceneRenderer implements ISceneRenderer {
             this.renderDisplayObject(displayObjects[i]);
         }
     };
+
+    getCanvasInfo(): ICanvas {
+        return this.canvasInfo;
+    }
 }
 
 export default SceneRenderer
