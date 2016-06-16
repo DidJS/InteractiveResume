@@ -1,4 +1,4 @@
-import { ICanvas } from './contracts';
+import { ICanvas } from './contracts/contracts';
 
 const initCanvas = (name: string): ICanvas => {
     var canvas = <HTMLCanvasElement>document.getElementById(name);

@@ -1,5 +1,5 @@
-import * as canvas from './canvasInitializer';
-import { ICanvas, ISceneRenderer, ITextObject, IScene } from './contracts';
+import * as canvas from '../canvasInitializer';
+import { ICanvas, ISceneRenderer, ITextObject, IScene } from '../contracts/contracts';
 
 const createRenderer = (canvasName: string): ISceneRenderer => {
     const canvasInfo = canvas.initCanvas(canvasName);

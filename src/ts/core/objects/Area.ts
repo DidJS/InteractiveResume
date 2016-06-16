@@ -1,8 +1,8 @@
-import {ISceneRenderer, IScene, ICoordinate, ISize, IStyle, IWorld} from './contracts'
+import {ISceneRenderer, IScene, ICoordinate, ISize, IStyle, IArea} from '../contracts/contracts'
 import * as worldscene from './scene'
 import * as scenerenderer from './scenerenderer'
 
-class World implements IWorld {
+class Area implements IArea {
     scene: IScene;
     renderer: ISceneRenderer;
 
@@ -24,4 +24,4 @@ class World implements IWorld {
     }
 }
 
-export default World;
+export default Area;

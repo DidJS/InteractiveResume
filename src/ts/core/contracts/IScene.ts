@@ -1,4 +1,4 @@
-import { ITextObject, ISize, ICoordinate, IStyle } from '../contracts'
+import { ITextObject, ISize, ICoordinate, IStyle } from './contracts'
 
 interface IScene {
     getName(): string,

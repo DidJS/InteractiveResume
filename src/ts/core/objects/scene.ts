@@ -1,5 +1,5 @@
-import {ITextObject, ISize, ICoordinate, IStyle, IScene} from './contracts'
-import * as textObject from './objects/textObject'
+import {ITextObject, ISize, ICoordinate, IStyle, IScene} from '../contracts/contracts'
+import * as textObject from './textObject'
 
 const createScene = (name: string): IScene => {
     const textObjects: ITextObject[] = [];

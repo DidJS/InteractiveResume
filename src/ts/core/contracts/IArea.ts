@@ -1,9 +1,9 @@
-import {ISize, ICoordinate, IStyle} from './core/contracts'
+import {ISize, ICoordinate, IStyle} from './contracts'
 
-interface IWorld {
+interface IArea {
     play(): void,
     addText(key: string, text: string, coordinates: ICoordinate, size: ISize, style: IStyle): void,
     setBackgroundColor(color: string): void
 }
 
-export {IWorld}
+export {IArea}
