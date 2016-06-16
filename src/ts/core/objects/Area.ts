@@ -1,4 +1,4 @@
-import {ISceneRenderer, IScene, ICoordinate, ISize, IStyle, IArea, ITextObject, IAddObject} from '../contracts'
+import {ISceneRenderer, IScene, ICoordinate, ISize, IStyle, IArea, ITextObject, IAddObject, ICollider} from '../contracts'
 import Scene from './Scene'
 import SceneRenderer from './SceneRenderer'
 import Rectangle from './Rectangle'
@@ -8,6 +8,7 @@ class Area implements IArea {
     private renderer: ISceneRenderer;
 
     add: IAddObject;
+    collider: ICollider;
 
     private createSceneObjects(name: string) {
         this.scene = new Scene(name);

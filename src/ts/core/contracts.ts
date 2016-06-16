@@ -9,6 +9,7 @@ import IScene from './contracts/IScene'
 import IArea from './contracts/IArea'
 import IIdentityObject from './contracts/IIdentityObject'
 import IAddObject from './contracts/IAddObject'
+import ICollider from './contracts/ICollider'
 
 
 export {
@@ -22,5 +23,6 @@ export {
     IScene as IScene,
     IArea as IArea,
     IIdentityObject as IIdentityObject,
-    IAddObject as IAddObject
+    IAddObject as IAddObject,
+    ICollider as ICollider
 }
