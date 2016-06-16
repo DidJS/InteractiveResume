@@ -1,39 +1,38 @@
 import {ITextObject, ISize, ICoordinate, IStyle, IScene} from '../contracts/contracts'
 import * as textObject from './textObject'
 
-const createScene = (name: string): IScene => {
-    const textObjects: ITextObject[] = [];
-    let areaColor = "white";
+class Scene implements IScene {
+    private name: string;
+    private textObjects: ITextObject[];
+    private areaColor = 'white';
 
-    const registerText = (key: string, text: string, coordinates: ICoordinate, size: ISize, style: IStyle): void => {
-        const obj: ITextObject = textObject.create(key, text, coordinates, size, style);
-        textObjects.push(obj);
-    };
+    constructor(name: string) {
+        this.name = name;
+        this.textObjects = [];
+    }
 
-    const getTextObjects = (): ITextObject[] => {
-        return textObjects;
-    };
-
-    const setBackgroundColor = (color: string): void => {
-        areaColor = color;
-    };
-
-    const getBackgroundColor = (): string => {
-        return areaColor;
-    };
-
-    const getName = (): string => {
+    getName(): string {
         return name;
     };
 
-    return {
-        getName: getName,
-        getBackgroundColor: getBackgroundColor,
-        addText: registerText,
-        setBackgroundColor: setBackgroundColor,
-        getTextObjects: getTextObjects
+    getBackgroundColor(): string {
+        return this.areaColor;
     };
-};
 
-export {createScene as createScene}
+    getTextObjects(): ITextObject[] {
+        return this.textObjects;
+    };
+
+    addText(key: string, text: string, coordinates: ICoordinate, size: ISize, style: IStyle): void {
+        const obj: ITextObject = textObject.create(key, text, coordinates, size, style);
+        this.textObjects.push(obj);
+    };
+
+    setBackgroundColor(color: string): void {
+        this.areaColor = color;
+    };
+}
+
+
+export default Scene
 

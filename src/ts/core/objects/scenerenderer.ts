@@ -1,34 +1,34 @@
 import * as canvas from '../canvasInitializer';
 import { ICanvas, ISceneRenderer, ITextObject, IScene } from '../contracts/contracts';
 
-const createRenderer = (canvasName: string): ISceneRenderer => {
-    const canvasInfo = canvas.initCanvas(canvasName);
+class SceneRenderer implements ISceneRenderer {
+    private canvasInfo: ICanvas;
 
-    const renderText = (textObject: ITextObject): void => {
-        canvasInfo.context.font = textObject.font;
-        canvasInfo.context.fillStyle = textObject.style;
-        canvasInfo.context.fillText(textObject.text, textObject.x, textObject.y);
+    constructor(canvasName: string) {
+        this.canvasInfo = canvas.initCanvas(canvasName);
+    }
+
+    private renderText(textObject: ITextObject): void {
+        this.canvasInfo.context.font = textObject.font;
+        this.canvasInfo.context.fillStyle = textObject.style;
+        this.canvasInfo.context.fillText(textObject.text, textObject.x, textObject.y);
     };
 
-    const setBackgroundColor = (color: string): void => {
-        canvasInfo.context.fillStyle = color;
-        canvasInfo.context.fillRect(0, 0, canvasInfo.canvas.width, canvasInfo.canvas.height);
+    private setBackgroundColor(color: string): void {
+        this.canvasInfo.context.fillStyle = color;
+        this.canvasInfo.context.fillRect(0, 0, this.canvasInfo.canvas.width, this.canvasInfo.canvas.height);
     };
 
-    const render = (scene: IScene): void => {
+    render(scene: IScene): void {
         const textObjects = scene.getTextObjects();
         const length = textObjects.length;
 
-        setBackgroundColor(scene.getBackgroundColor());
+        this.setBackgroundColor(scene.getBackgroundColor());
 
         for (let i = 0; i < length; i++) {
-            renderText(textObjects[i]);
+            this.renderText(textObjects[i]);
         }
     };
+}
 
-    return {
-        render: render
-    };
-};
-
-export { createRenderer }
+export default SceneRenderer

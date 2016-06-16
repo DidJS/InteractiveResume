@@ -1,17 +1,17 @@
 import {ISceneRenderer, IScene, ICoordinate, ISize, IStyle, IArea} from '../contracts/contracts'
-import * as worldscene from './scene'
-import * as scenerenderer from './scenerenderer'
+import Scene from './scene'
+import SceneRenderer from './scenerenderer'
 
 class Area implements IArea {
     scene: IScene;
     renderer: ISceneRenderer;
 
     constructor(name: string) {
-        this.scene = worldscene.createScene(name);
-        this.renderer = scenerenderer.createRenderer(name);
+        this.scene = new Scene(name);
+        this.renderer = new SceneRenderer(name);
     }
 
-    play(): void {
+    display(): void {
         this.renderer.render(this.scene);
     }
 
