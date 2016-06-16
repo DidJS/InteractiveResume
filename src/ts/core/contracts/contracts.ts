@@ -7,6 +7,7 @@ import {ICoordinate} from './ICoordinate'
 import {IStyle} from './IStyle'
 import {IScene} from './IScene'
 import {IArea} from './IArea'
+import IShape from './IShape'
 
 
 export {
@@ -18,5 +19,6 @@ export {
     ICoordinate,
     IStyle,
     IScene,
-    IArea
+    IArea,
+    IShape
 }

@@ -1,5 +1,5 @@
 import * as canvas from '../canvasInitializer';
-import { ICanvas, ISceneRenderer, ITextObject, IScene } from '../contracts/contracts';
+import { ICanvas, ISceneRenderer, ITextObject, IScene, IDisplayObject } from '../contracts/contracts';
 
 class SceneRenderer implements ISceneRenderer {
     private canvasInfo: ICanvas;
@@ -14,6 +14,11 @@ class SceneRenderer implements ISceneRenderer {
         this.canvasInfo.context.fillText(textObject.text, textObject.x, textObject.y);
     };
 
+    private renderDisplayObject(displayObject: IDisplayObject): void {
+        this.canvasInfo.context.rect(displayObject.x, displayObject.y, displayObject.width, displayObject.height);
+        this.canvasInfo.context.stroke();
+    }
+
     private setBackgroundColor(color: string): void {
         this.canvasInfo.context.fillStyle = color;
         this.canvasInfo.context.fillRect(0, 0, this.canvasInfo.canvas.width, this.canvasInfo.canvas.height);
@@ -21,12 +26,18 @@ class SceneRenderer implements ISceneRenderer {
 
     render(scene: IScene): void {
         const textObjects = scene.getTextObjects();
-        const length = textObjects.length;
+        const displayObjects = scene.getDisplayObjects();
+        const lengthTextObjects = textObjects.length;
+        const lengthDisplayObjects = displayObjects.length;
 
         this.setBackgroundColor(scene.getBackgroundColor());
 
-        for (let i = 0; i < length; i++) {
+        for (let i = 0; i < lengthTextObjects; i++) {
             this.renderText(textObjects[i]);
+        }
+
+        for (let i = 0; i < lengthDisplayObjects; i++) {
+            this.renderDisplayObject(displayObjects[i]);
         }
     };
 }

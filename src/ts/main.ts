@@ -1,4 +1,5 @@
 import * as areaCreator from './core/areaCreator';
+import Rectangle from './core/objects/Rectangle';
 
 const areaPlayground = areaCreator.create('playground_canvas');
 const areaActions = areaCreator.create('actions_canvas');
@@ -11,7 +12,7 @@ areaActions.addText('look','Regarder', {x: 20, y: 30}, {width: 60, height: 30}, 
 areaActions.addText('use', 'Utiliser', {x: 120, y: 30}, {width: 60, height: 30}, {font: "20px serif", style: "blue"});
 areaActions.addText('open', 'Ouvrir', {x: 200, y: 30}, {width: 60, height: 30}, {font: "20px serif", style: "blue"});
 
-// areaPlayground.addShape<Rectangle>('rectangle1', {x: 20, y: 30}, {width: 60, height: 30});
+var rectangle1 = areaPlayground.addRectangle('rectangle1', {x: 20, y: 30}, {width: 60, height: 30});
 
 areaPlayground.display();
 areaActions.display();
