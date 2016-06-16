@@ -1,4 +1,4 @@
-import {ISize, ICoordinate, IStyle, IAddObject} from '../contracts'
+import IAddObject from './IAddObject'
 
 interface IArea {
     display(): void,
@@ -6,4 +6,4 @@ interface IArea {
     add: IAddObject
 }
 
-export {IArea}
+export default IArea;

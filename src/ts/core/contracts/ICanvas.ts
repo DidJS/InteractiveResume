@@ -3,4 +3,4 @@ interface ICanvas {
     context: CanvasRenderingContext2D
 }
 
-export { ICanvas }
+export default ICanvas;

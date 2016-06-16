@@ -10,4 +10,4 @@ interface IScene {
     addRectangle(key: string, coordinates: ICoordinate, size: ISize): IRectangleObject
 }
 
-export {IScene}
+export default IScene;

@@ -4,4 +4,4 @@ interface ITextObject extends IRectangleObject, IStyle {
     text: string
 }
 
-export { ITextObject }
+export default ITextObject;

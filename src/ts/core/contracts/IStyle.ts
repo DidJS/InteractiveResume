@@ -3,4 +3,4 @@ interface IStyle {
     style: string
 }
 
-export {IStyle}
+export default IStyle;

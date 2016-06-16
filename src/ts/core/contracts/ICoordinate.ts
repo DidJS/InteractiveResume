@@ -3,4 +3,4 @@ interface ICoordinate {
     y: number
 }
 
-export {ICoordinate}
+export default ICoordinate;

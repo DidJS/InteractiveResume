@@ -3,4 +3,4 @@ interface ISize {
     width: number
 }
 
-export {ISize}
+export default ISize;

@@ -1,7 +1,7 @@
-import { IScene } from './IScene';
+import IScene from './IScene';
 
 interface ISceneRenderer {
     render(scene: IScene): void
 }
 
-export { ISceneRenderer }
+export default ISceneRenderer;
